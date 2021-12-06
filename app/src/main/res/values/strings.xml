@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">curso-android-marvel-app</string>
+    <string name="hello_marvel_app">Olá Marvel App</string>
 </resources>
