@@ -3,7 +3,11 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/guide/AndroidStudioProjects/cursoandroidmarvelapp/app/src/main/res/layout/activity_main.xml" value="0.1" />
+        <entry key="..\:/Users/guide/AndroidStudioProjects/cursoandroidmarvelapp/app/src/main/res/drawable/ic_favorite_menu_outlined.xml" value="0.37037037037037035" />
+        <entry key="..\:/Users/guide/AndroidStudioProjects/cursoandroidmarvelapp/app/src/main/res/drawable/ic_heroes_menu_outlined.xml" value="0.37037037037037035" />
+        <entry key="..\:/Users/guide/AndroidStudioProjects/cursoandroidmarvelapp/app/src/main/res/drawable/ic_info_menu_outlined.xml" value="0.37037037037037035" />
+        <entry key="..\:/Users/guide/AndroidStudioProjects/cursoandroidmarvelapp/app/src/main/res/layout/activity_main.xml" value="0.16666666666666666" />
+        <entry key="..\:/Users/guide/AndroidStudioProjects/cursoandroidmarvelapp/app/src/main/res/menu/app_menu_items.xml" value="0.36302083333333335" />
         <entry key="app/src/main/res/drawable/ic_img_loading_error.xml" value="0.14074074074074075" />
       </map>
     </option>
