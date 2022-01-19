@@ -1,6 +1,6 @@
-package com.gfdellatin.core.data.network
+package com.gfdellatin.curso_android_marvel_app.framework.network
 
-import com.gfdellatin.core.data.network.response.DataWrapperResponse
+import com.gfdellatin.curso_android_marvel_app.framework.network.response.DataWrapperResponse
 import retrofit2.http.GET
 import retrofit2.http.QueryMap
 

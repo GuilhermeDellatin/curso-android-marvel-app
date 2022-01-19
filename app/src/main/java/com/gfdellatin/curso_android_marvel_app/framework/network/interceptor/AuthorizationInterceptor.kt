@@ -1,4 +1,4 @@
-package com.gfdellatin.core.data.network.interceptor
+package com.gfdellatin.curso_android_marvel_app.framework.network.interceptor
 
 import okhttp3.Interceptor
 import okhttp3.Response

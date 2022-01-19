@@ -1,4 +1,4 @@
-package com.gfdellatin.core.data.network.response
+package com.gfdellatin.curso_android_marvel_app.framework.network.response
 
 data class CharacterResponse(
     val id: String,

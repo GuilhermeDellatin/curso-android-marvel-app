@@ -1,6 +1,6 @@
 package com.gfdellatin.curso_android_marvel_app.framework.di
 
-import com.gfdellatin.core.data.network.interceptor.AuthorizationInterceptor
+import com.gfdellatin.curso_android_marvel_app.framework.network.interceptor.AuthorizationInterceptor
 import com.gfdellatin.curso_android_marvel_app.BuildConfig
 import dagger.Module
 import dagger.Provides
