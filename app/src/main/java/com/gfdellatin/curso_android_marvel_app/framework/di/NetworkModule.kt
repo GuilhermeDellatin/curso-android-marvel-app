@@ -2,6 +2,7 @@ package com.gfdellatin.curso_android_marvel_app.framework.di
 
 import com.gfdellatin.curso_android_marvel_app.framework.network.interceptor.AuthorizationInterceptor
 import com.gfdellatin.curso_android_marvel_app.BuildConfig
+import com.gfdellatin.curso_android_marvel_app.framework.network.MarvelApi
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -61,12 +62,13 @@ object NetworkModule {
     fun provideRetrofit(
         okHttpClient: OkHttpClient,
         converterFactory: GsonConverterFactory
-    ) : Retrofit {
+    ) : MarvelApi {
         return Retrofit.Builder()
             .baseUrl(BuildConfig.BASE_URL)
             .client(okHttpClient)
             .addConverterFactory(converterFactory)
             .build()
+            .create(MarvelApi::class.java)
     }
 
 }
