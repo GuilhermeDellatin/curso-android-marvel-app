@@ -1,4 +1,4 @@
-package com.gfdellatin.curso_android_marvel_app.framework.remote
+package com.gfdellatin.curso_android_marvel_app.framework
 
 import com.gfdellatin.core.data.repository.CharactersRemoteDataSource
 import com.gfdellatin.curso_android_marvel_app.framework.network.MarvelApi
