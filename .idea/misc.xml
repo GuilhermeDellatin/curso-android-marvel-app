@@ -4,6 +4,7 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/guide/AndroidStudioProjects/cursoandroidmarvelapp/app/src/main/res/drawable/ic_back.xml" value="0.37333333333333335" />
+        <entry key="..\:/Users/guide/AndroidStudioProjects/cursoandroidmarvelapp/app/src/main/res/drawable/ic_dissatisfied.xml" value="0.204" />
         <entry key="..\:/Users/guide/AndroidStudioProjects/cursoandroidmarvelapp/app/src/main/res/drawable/ic_favorite_menu_outlined.xml" value="0.37037037037037035" />
         <entry key="..\:/Users/guide/AndroidStudioProjects/cursoandroidmarvelapp/app/src/main/res/drawable/ic_heroes_menu_outlined.xml" value="0.37037037037037035" />
         <entry key="..\:/Users/guide/AndroidStudioProjects/cursoandroidmarvelapp/app/src/main/res/drawable/ic_img_loading_error.xml" value="0.3685185185185185" />
@@ -12,6 +13,7 @@
         <entry key="..\:/Users/guide/AndroidStudioProjects/cursoandroidmarvelapp/app/src/main/res/layout/fragment_about.xml" value="0.31521739130434784" />
         <entry key="..\:/Users/guide/AndroidStudioProjects/cursoandroidmarvelapp/app/src/main/res/layout/fragment_characters.xml" value="0.31521739130434784" />
         <entry key="..\:/Users/guide/AndroidStudioProjects/cursoandroidmarvelapp/app/src/main/res/layout/fragment_favorites.xml" value="0.17654508611955422" />
+        <entry key="..\:/Users/guide/AndroidStudioProjects/cursoandroidmarvelapp/app/src/main/res/layout/include_view_characters_error_state.xml" value="0.36302083333333335" />
         <entry key="..\:/Users/guide/AndroidStudioProjects/cursoandroidmarvelapp/app/src/main/res/layout/include_view_characters_loading_state.xml" value="0.17654508611955422" />
         <entry key="..\:/Users/guide/AndroidStudioProjects/cursoandroidmarvelapp/app/src/main/res/layout/item_character.xml" value="0.36302083333333335" />
         <entry key="..\:/Users/guide/AndroidStudioProjects/cursoandroidmarvelapp/app/src/main/res/layout/shimmer_layout_character_item.xml" value="0.36302083333333335" />
