@@ -17,7 +17,7 @@
         app:drawableTopCompat="@drawable/ic_dissatisfied"/>
 
     <Button
-        android:id="@+id/button_entry"
+        android:id="@+id/button_retry"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/common_try_again"/>
