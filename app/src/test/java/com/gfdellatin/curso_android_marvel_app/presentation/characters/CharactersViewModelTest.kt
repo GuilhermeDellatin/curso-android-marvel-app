@@ -8,6 +8,7 @@ import com.nhaarman.mockitokotlin2.any
 import com.nhaarman.mockitokotlin2.whenever
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi
+import kotlinx.coroutines.flow.count
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.flowOf
 import kotlinx.coroutines.test.TestCoroutineDispatcher
@@ -63,14 +64,8 @@ class CharactersViewModelTest {
             )
         )
 
-        val expectedPagingData = pagingDataCharacters
+        val result = charactersViewModel.charactersPagingData("")
 
-        val result = charactersViewModel.charactersPagingData("").first()
-
-        result.map { resultCharacter ->
-            expectedPagingData.map {
-                assertEquals(it.name, resultCharacter.name)
-            }
-        }
+        assertEquals(1, result.count())
     }
 }
