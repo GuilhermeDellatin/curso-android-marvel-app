@@ -68,4 +68,16 @@ class CharactersViewModelTest {
 
         assertEquals(1, result.count())
     }
+
+    @ExperimentalCoroutinesApi
+    @Test(expected = RuntimeException::class)
+    fun `should throw an exception when the calling to the use case returns an exception`() = runBlockingTest {
+        whenever(
+            getCharactersUseCase.invoke(any())
+        ).thenThrow(
+            RuntimeException()
+        )
+
+        charactersViewModel.charactersPagingData("")
+    }
 }
