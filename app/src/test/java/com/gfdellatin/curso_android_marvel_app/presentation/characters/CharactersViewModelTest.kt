@@ -1,23 +1,17 @@
 package com.gfdellatin.curso_android_marvel_app.presentation.characters
 
 import androidx.paging.PagingData
-import androidx.paging.map
-import com.gfdellatin.core.domain.model.Character
 import com.gfdellatin.core.usecase.GetCharactersUseCase
+import com.gfdellatin.testing.MainCoroutineRule
+import com.gfdellatin.testing.model.CharacterFactory
 import com.nhaarman.mockitokotlin2.any
 import com.nhaarman.mockitokotlin2.whenever
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.count
-import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.flowOf
-import kotlinx.coroutines.test.TestCoroutineDispatcher
-import kotlinx.coroutines.test.resetMain
 import kotlinx.coroutines.test.runBlockingTest
-import kotlinx.coroutines.test.setMain
-import org.junit.After
 import org.junit.Assert.assertEquals
-import org.junit.Before
+import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.mockito.Mock
@@ -27,32 +21,22 @@ import org.mockito.junit.MockitoJUnitRunner
 class CharactersViewModelTest {
 
     @ExperimentalCoroutinesApi
-    val testDispatcher: TestCoroutineDispatcher = TestCoroutineDispatcher()
+    @get:Rule
+    var mainCoroutineRule = MainCoroutineRule()
 
     @Mock
     lateinit var getCharactersUseCase: GetCharactersUseCase
 
     private lateinit var charactersViewModel: CharactersViewModel
 
+    private val charactersFactory = CharacterFactory()
+
     private val pagingDataCharacters = PagingData.from(
         listOf(
-            Character(
-                "3-D Man",
-                "https://i.annihil.us/u/prod/marvel/i/mg/c/e0/535fecbbb9784.jpg"
-            ),
-            Character(
-                "A-Bomb (HAS)",
-                "https://i.annihil.us/u/prod/marvel/i/mg/3/20/5232158de5b16.jpg"
-            )
+            charactersFactory.create(CharacterFactory.Hero.ThreeDMan),
+            charactersFactory.create(CharacterFactory.Hero.ABomb)
         )
     )
-
-    @ExperimentalCoroutinesApi
-    @Before
-    fun setUp() {
-        Dispatchers.setMain(testDispatcher)
-        charactersViewModel = CharactersViewModel(getCharactersUseCase)
-    }
 
     @ExperimentalCoroutinesApi
     @Test
@@ -81,13 +65,6 @@ class CharactersViewModelTest {
         )
 
         charactersViewModel.charactersPagingData("")
-    }
-
-    @ExperimentalCoroutinesApi
-    @After
-    fun tearDownDispatcher() {
-        Dispatchers.resetMain()
-        testDispatcher.cleanupTestCoroutines()
     }
 
 }
