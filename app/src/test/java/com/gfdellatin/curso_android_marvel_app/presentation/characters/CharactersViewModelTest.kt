@@ -11,16 +11,17 @@ import kotlinx.coroutines.flow.count
 import kotlinx.coroutines.flow.flowOf
 import kotlinx.coroutines.test.runBlockingTest
 import org.junit.Assert.assertEquals
+import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.mockito.Mock
 import org.mockito.junit.MockitoJUnitRunner
 
+@ExperimentalCoroutinesApi
 @RunWith(MockitoJUnitRunner::class)
 class CharactersViewModelTest {
 
-    @ExperimentalCoroutinesApi
     @get:Rule
     var mainCoroutineRule = MainCoroutineRule()
 
@@ -38,7 +39,11 @@ class CharactersViewModelTest {
         )
     )
 
-    @ExperimentalCoroutinesApi
+    @Before
+    fun setUp() {
+        charactersViewModel = CharactersViewModel(getCharactersUseCase)
+    }
+
     @Test
     fun `should validate the paging data object values when calling charactersPagingData`() = runBlockingTest {
 
@@ -55,7 +60,6 @@ class CharactersViewModelTest {
         assertEquals(1, result.count())
     }
 
-    @ExperimentalCoroutinesApi
     @Test(expected = RuntimeException::class)
     fun `should throw an exception when the calling to the use case returns an exception`() = runBlockingTest {
         whenever(
