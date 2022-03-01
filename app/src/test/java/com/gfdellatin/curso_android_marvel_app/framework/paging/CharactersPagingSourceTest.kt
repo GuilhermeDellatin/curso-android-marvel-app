@@ -76,6 +76,7 @@ class CharactersPagingSourceTest {
 
     @Test
     fun `should return a error load result when load is called`() = runBlockingTest {
+
         //Arrange
         val exception = RuntimeException()
         whenever(remoteDataSource.fetchCharacters(any()))
