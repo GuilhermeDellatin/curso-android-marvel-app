@@ -37,8 +37,11 @@ android {
             debuggable true
         }
         staging {
+            initWith debug
             minifyEnabled true
             applicationIdSuffix '.staging'
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro',
+                    'proguard-rules-staging.pro'
         }
         release {
             minifyEnabled true
