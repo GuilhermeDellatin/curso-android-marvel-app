@@ -17,6 +17,15 @@ android {
     compileSdk 31
     buildToolsVersion "30.0.3"
 
+    signingConfigs {
+        release {
+            storeFile file('C:\\Users\\guide\\AndroidStudioProjects\\cursoandroidmarvelapp\\store\\marvel_app_key_store.jks')
+            storePassword 'marvel@123'
+            keyAlias 'marvel-app'
+            keyPassword 'marvel@123'
+        }
+    }
+
     defaultConfig {
         applicationId "com.gfdellatin.curso_android_marvel_app"
         minSdk 23
@@ -44,6 +53,7 @@ android {
                     'proguard-rules-staging.pro'
         }
         release {
+            signingConfig signingConfigs.release
             minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
