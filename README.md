@@ -3,12 +3,13 @@ Projeto para api da marvel realizado no curso Android Moderno e Profissional min
 
 # Objetivos
 Aprender conceitos avançados como: 
-- Testes Unitários 
-- Testes de Mockagem 
-- Testes de UI com Espresso  
-- CI/CD
-- Paginação com a biblioteca Paging
-- Modularização do Aplicativo
+- 👨‍💻 Testes Unitários 
+- 👨‍💻 Testes de Mockagem 
+- 👨‍💻 Testes de UI com Espresso  
+- 👨‍💻 CI/CD
+- 👨‍💻 Paginação com a biblioteca Paging
+- 👨‍💻 Modularização do Aplicativo
 
 # Patterns Utilizados
-- Clean Architecture com MVVM
+- 👨‍💻 MVVM com Clean Architecture
+- 👨‍💻 Retrofit para consumo de apis : https://square.github.io/retrofit/
