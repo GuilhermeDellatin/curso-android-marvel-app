@@ -9,3 +9,6 @@ Aprender conceitos avançados como:
 - CI/CD
 - Paginação com a biblioteca Paging
 - Modularização do Aplicativo
+
+# Patterns Utilizados
+- Clean Architecture com MVVM
