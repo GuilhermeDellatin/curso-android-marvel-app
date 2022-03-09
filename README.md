@@ -1,5 +1,5 @@
 # curso-android-marvel-app
-Projeto para api da marvel realizado no curso Android Moderno e Profissional ministrado por Douglas Motta
+Projeto para consumir api da marvel realizado no curso Android Moderno e Profissional ministrado por Douglas Motta
 
 # Objetivos
 Aprender conceitos avançados como: 
@@ -13,3 +13,4 @@ Aprender conceitos avançados como:
 # Patterns Utilizados
 - 👨‍💻 MVVM com Clean Architecture
 - 👨‍💻 Retrofit para consumo de apis : https://square.github.io/retrofit/
+- 👨‍💻 Dagger Hilt para injeção de dependencia : https://developer.android.com/training/dependency-injection/hilt-android?hl=pt-br
