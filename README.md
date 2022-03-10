@@ -14,3 +14,4 @@ Aprender conceitos avançados como:
 - 👨‍💻 MVVM com Clean Architecture
 - 👨‍💻 Retrofit para consumo de apis : https://square.github.io/retrofit/
 - 👨‍💻 Dagger Hilt para injeção de dependencia : https://developer.android.com/training/dependency-injection/hilt-android?hl=pt-br
+- 👨‍💻 Firebase para analytics : https://firebase.google.com/?gclid=EAIaIQobChMIhfiEsN689gIVWAiRCh0PCwVBEAAYAiAAEgLONfD_BwE&gclsrc=aw.ds
