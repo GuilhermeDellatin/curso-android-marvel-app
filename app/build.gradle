@@ -134,5 +134,8 @@ dependencies {
 
     def fragment_version = "1.4.0"
     debugImplementation("androidx.fragment:fragment-testing:$fragment_version")
+
+    androidTestImplementation "com.google.dagger:hilt-android-testing:$hilt_version"
+    kaptAndroidTest "com.google.dagger:hilt-android-compiler:$hilt_version"
     
 }
