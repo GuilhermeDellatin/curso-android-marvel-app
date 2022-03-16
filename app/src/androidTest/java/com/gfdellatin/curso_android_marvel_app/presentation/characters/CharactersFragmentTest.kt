@@ -30,6 +30,8 @@ class CharactersFragmentTest {
     fun shouldShowCharacters_whenViewIsCreated() {
         onView(
             withId(R.id.recycler_characters)
-        ).check(matches(isDisplayed()))
+        ).check(
+            matches(isDisplayed())
+        )
     }
 }
