@@ -61,10 +61,11 @@ object NetworkModule {
     @Provides
     fun provideRetrofit(
         okHttpClient: OkHttpClient,
-        converterFactory: GsonConverterFactory
+        converterFactory: GsonConverterFactory,
+        baseUrl: String
     ) : MarvelApi {
         return Retrofit.Builder()
-            .baseUrl(BuildConfig.BASE_URL)
+            .baseUrl(baseUrl)
             .client(okHttpClient)
             .addConverterFactory(converterFactory)
             .build()
