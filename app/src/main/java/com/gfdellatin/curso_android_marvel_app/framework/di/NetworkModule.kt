@@ -2,6 +2,7 @@ package com.gfdellatin.curso_android_marvel_app.framework.di
 
 import com.gfdellatin.curso_android_marvel_app.framework.network.interceptor.AuthorizationInterceptor
 import com.gfdellatin.curso_android_marvel_app.BuildConfig
+import com.gfdellatin.curso_android_marvel_app.framework.di.qualifier.BaseUrl
 import com.gfdellatin.curso_android_marvel_app.framework.network.MarvelApi
 import dagger.Module
 import dagger.Provides
@@ -62,7 +63,7 @@ object NetworkModule {
     fun provideRetrofit(
         okHttpClient: OkHttpClient,
         converterFactory: GsonConverterFactory,
-        baseUrl: String
+        @BaseUrl baseUrl: String
     ) : MarvelApi {
         return Retrofit.Builder()
             .baseUrl(baseUrl)
