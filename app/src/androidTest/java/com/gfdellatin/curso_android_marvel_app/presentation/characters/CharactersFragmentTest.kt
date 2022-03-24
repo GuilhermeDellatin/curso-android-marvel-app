@@ -70,6 +70,17 @@ class CharactersFragmentTest {
         )
     }
 
+    @Test
+    fun shouldShowErrorView_whenReceivesAnErrorFromApi() {
+        server.enqueue(MockResponse().setResponseCode(404))
+
+        onView(
+            withId(R.id.text_initial_loading_error)
+        ).check(
+            matches(isDisplayed())
+        )
+    }
+
     @After
     fun tearDown() {
         server.shutdown()
