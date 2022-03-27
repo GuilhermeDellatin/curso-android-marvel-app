@@ -98,6 +98,11 @@ class CharactersFragment : Fragment() {
         }
     }
 
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
+    }
+
     companion object {
         private const val FLIPPER_CHILD_LOADING = 0
         private const val FLIPPER_CHILD_CHARACTERS = 1
