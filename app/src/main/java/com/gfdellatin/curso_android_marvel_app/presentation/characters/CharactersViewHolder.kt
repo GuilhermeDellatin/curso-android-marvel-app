@@ -7,9 +7,11 @@ import com.bumptech.glide.Glide
 import com.gfdellatin.core.domain.model.Character
 import com.gfdellatin.curso_android_marvel_app.R
 import com.gfdellatin.curso_android_marvel_app.databinding.ItemCharacterBinding
+import com.gfdellatin.curso_android_marvel_app.util.OnCharacterItemClick
 
 class CharactersViewHolder(
-    itemCharacterBinding: ItemCharacterBinding
+    itemCharacterBinding: ItemCharacterBinding,
+    private val onItemClick: OnCharacterItemClick
 ) : RecyclerView.ViewHolder(itemCharacterBinding.root) {
 
     private val textName = itemCharacterBinding.textName
@@ -21,13 +23,20 @@ class CharactersViewHolder(
             .load(character.imageUrl)
             .fallback(R.drawable.ic_img_loading_error)
             .into(imageCharacter)
+
+        itemView.setOnClickListener {
+            onItemClick.invoke(character, imageCharacter)
+        }
     }
 
     companion object {
-        fun create(parent: ViewGroup): CharactersViewHolder {
+        fun create(
+            parent: ViewGroup,
+            onItemClick: OnCharacterItemClick
+        ): CharactersViewHolder {
             val inflater = LayoutInflater.from(parent.context)
             val itemBinding = ItemCharacterBinding.inflate(inflater, parent, false)
-            return CharactersViewHolder(itemBinding)
+            return CharactersViewHolder(itemBinding, onItemClick)
         }
     }
 
