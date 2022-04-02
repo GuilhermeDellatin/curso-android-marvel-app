@@ -3,7 +3,6 @@ package com.gfdellatin.curso_android_marvel_app.framework.di
 import com.gfdellatin.core.data.repository.CharactersRemoteDataSource
 import com.gfdellatin.core.data.repository.CharactersRepository
 import com.gfdellatin.curso_android_marvel_app.framework.RetrofitCharactersDataSource
-import com.gfdellatin.curso_android_marvel_app.framework.network.response.DataWrapperResponse
 import com.gfdellatin.curso_android_marvel_app.framework.remote.CharactersRepositoryImpl
 import dagger.Binds
 import dagger.Module
@@ -20,6 +19,6 @@ interface RepositoryModule {
     @Binds
     fun bindRemoteDataSource(
         dataSource: RetrofitCharactersDataSource
-    ): CharactersRemoteDataSource<DataWrapperResponse>
+    ): CharactersRemoteDataSource
 
 }
