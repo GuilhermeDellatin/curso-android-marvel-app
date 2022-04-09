@@ -7,6 +7,7 @@ import androidx.lifecycle.viewModelScope
 import com.gfdellatin.core.domain.model.Comic
 import com.gfdellatin.core.usecase.GetComicsUseCase
 import com.gfdellatin.core.usecase.base.ResultStatus
+import com.gfdellatin.curso_android_marvel_app.R
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.collect
@@ -30,7 +31,17 @@ class DetailViewModel @Inject constructor(
         collect { status ->
             _uiState.value = when (status) {
                 ResultStatus.Loading -> UiState.Loading
-                is ResultStatus.Success -> UiState.Success(status.data)
+                is ResultStatus.Success -> {
+                    val detailChildList = status.data.map { DetailChildVE(it.id, it.imageUrl) }
+
+                    val detailParentList = listOf(
+                        DetailParentVE(
+                            R.string.details_comics_category,
+                            detailChildList
+                        )
+                    )
+                    UiState.Success(detailParentList)
+                }
                 is ResultStatus.Error -> UiState.Error
             }
         }
@@ -38,7 +49,7 @@ class DetailViewModel @Inject constructor(
 
     sealed class UiState {
         object Loading: UiState()
-        data class Success(val comics: List<Comic>) : UiState()
+        data class Success(val detailParentList: List<DetailParentVE>) : UiState()
         object Error : UiState()
     }
 

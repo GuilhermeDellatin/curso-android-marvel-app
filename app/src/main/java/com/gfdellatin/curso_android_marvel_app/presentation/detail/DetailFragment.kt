@@ -50,13 +50,13 @@ class DetailFragment : Fragment() {
         setSharedElementTransitionOnEnter()
 
         viewModel.uiState.observe(viewLifecycleOwner) { uiState ->
-            val logResult = when (uiState) {
-                DetailViewModel.UiState.Loading -> "Loading comics..."
-                is DetailViewModel.UiState.Success -> uiState.comics.toString()
-                DetailViewModel.UiState.Error -> "Error when loading comics"
+            when (uiState) {
+                DetailViewModel.UiState.Loading -> {}
+                is DetailViewModel.UiState.Success -> {
+                    uiState.detailParentList.toString()
+                }
+                DetailViewModel.UiState.Error -> {}
             }
-
-            Log.d(DetailFragment::class.simpleName, logResult)
         }
 
         viewModel.getComics(detailViewArg.characterId)
