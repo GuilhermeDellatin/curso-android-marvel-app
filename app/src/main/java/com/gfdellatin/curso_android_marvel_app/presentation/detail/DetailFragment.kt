@@ -45,7 +45,7 @@ class DetailFragment : Fragment() {
         val detailViewArg = args.detailViewArg
         binding.imageCharacter.run {
             transitionName = detailViewArg.name
-            imageLoader.load(this, detailViewArg.imageUrl, R.drawable.ic_img_loading_error)
+            imageLoader.load(this, detailViewArg.imageUrl)
         }
         setSharedElementTransitionOnEnter()
 
@@ -53,7 +53,10 @@ class DetailFragment : Fragment() {
             when (uiState) {
                 DetailViewModel.UiState.Loading -> {}
                 is DetailViewModel.UiState.Success -> {
-                    uiState.detailParentList.toString()
+                    binding.recyclerParentDetail.run {
+                        setHasFixedSize(true)
+                        adapter = DetailParentAdapter(uiState.detailParentList, imageLoader)
+                    }
                 }
                 DetailViewModel.UiState.Error -> {}
             }

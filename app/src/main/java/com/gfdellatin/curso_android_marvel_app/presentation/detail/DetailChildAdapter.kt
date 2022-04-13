@@ -31,7 +31,7 @@ class DetailChildAdapter(
         private val imageCategory: ImageView = itemBinding.imageItemCategory
 
         fun bind(detailChildVE: DetailChildVE) {
-            imageLoader.load(imageCategory, detailChildVE.imageUrl, R.drawable.ic_img_loading_error)
+            imageLoader.load(imageCategory, detailChildVE.imageUrl)
         }
 
         companion object {
