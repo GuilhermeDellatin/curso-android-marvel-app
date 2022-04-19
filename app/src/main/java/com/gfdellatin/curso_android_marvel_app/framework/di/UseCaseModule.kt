@@ -2,8 +2,8 @@ package com.gfdellatin.curso_android_marvel_app.framework.di
 
 import com.gfdellatin.core.usecase.GetCharactersUseCase
 import com.gfdellatin.core.usecase.GetCharactersUseCaseImpl
-import com.gfdellatin.core.usecase.GetComicsUseCase
-import com.gfdellatin.core.usecase.GetComicsUseCaseImpl
+import com.gfdellatin.core.usecase.GetCharacterCategoriesUseCase
+import com.gfdellatin.core.usecase.GetCharacterCategoriesUseCaseImpl
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn
@@ -17,5 +17,7 @@ interface UseCaseModule {
     fun bindGetCharactersUseCase(useCase: GetCharactersUseCaseImpl): GetCharactersUseCase
 
     @Binds
-    fun bindGetComicsUseCase(useCase: GetComicsUseCaseImpl): GetComicsUseCase
+    fun bindGetComicsUseCase(
+        useCase: GetCharacterCategoriesUseCaseImpl
+    ): GetCharacterCategoriesUseCase
 }
