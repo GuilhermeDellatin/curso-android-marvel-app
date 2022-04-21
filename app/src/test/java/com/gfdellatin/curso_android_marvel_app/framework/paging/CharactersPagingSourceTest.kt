@@ -3,8 +3,7 @@ package com.gfdellatin.curso_android_marvel_app.framework.paging
 import androidx.paging.PagingSource
 import com.gfdellatin.core.data.repository.CharactersRemoteDataSource
 import com.gfdellatin.core.domain.model.Character
-import com.gfdellatin.curso_android_marvel_app.factoryresponse.DataWrapperResponseFactory
-import com.gfdellatin.curso_android_marvel_app.framework.network.response.DataWrapperResponse
+import com.gfdellatin.curso_android_marvel_app.factoryresponse.CharacterPagingFactory
 import com.gfdellatin.testing.MainCoroutineRule
 import com.gfdellatin.testing.model.CharacterFactory
 import com.nhaarman.mockitokotlin2.any
@@ -18,7 +17,6 @@ import org.junit.Test
 import org.junit.runner.RunWith
 import org.mockito.Mock
 import org.mockito.junit.MockitoJUnitRunner
-import java.lang.RuntimeException
 
 @RunWith(MockitoJUnitRunner::class)
 @ExperimentalCoroutinesApi
@@ -28,9 +26,9 @@ class CharactersPagingSourceTest {
     var mainCoroutineRule = MainCoroutineRule()
 
     @Mock
-    lateinit var remoteDataSource: CharactersRemoteDataSource<DataWrapperResponse>
+    lateinit var remoteDataSource: CharactersRemoteDataSource
 
-    private val dataWrapperResponseFactory = DataWrapperResponseFactory()
+    private val dataWrapperResponseFactory = CharacterPagingFactory()
 
     private val characterFactory = CharacterFactory()
 
@@ -50,7 +48,7 @@ class CharactersPagingSourceTest {
 
         //Act
         val result = charactersPagingSource.load(
-            PagingSource.LoadParams .Refresh(
+            PagingSource.LoadParams.Refresh(
                 null,
                 loadSize = 2,
                 false
