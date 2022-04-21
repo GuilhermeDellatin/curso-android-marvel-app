@@ -9,7 +9,7 @@ import com.nhaarman.mockitokotlin2.whenever
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.flowOf
-import kotlinx.coroutines.test.runBlockingTest
+import kotlinx.coroutines.test.runTest
 import org.junit.Assert.assertNotNull
 import org.junit.Before
 import org.junit.Rule
@@ -45,7 +45,7 @@ class CharactersViewModelTest {
     }
 
     @Test
-    fun `should validate the paging data object values when calling charactersPagingData`() = runBlockingTest {
+    fun `should validate the paging data object values when calling charactersPagingData`() = runTest {
 
         whenever(
             getCharactersUseCase.invoke(any())
@@ -61,7 +61,7 @@ class CharactersViewModelTest {
     }
 
     @Test(expected = RuntimeException::class)
-    fun `should throw an exception when the calling to the use case returns an exception`() = runBlockingTest {
+    fun `should throw an exception when the calling to the use case returns an exception`() = runTest {
         whenever(
             getCharactersUseCase.invoke(any())
         ).thenThrow(
