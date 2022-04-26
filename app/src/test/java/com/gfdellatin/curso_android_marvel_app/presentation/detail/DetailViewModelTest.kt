@@ -2,6 +2,7 @@ package com.gfdellatin.curso_android_marvel_app.presentation.detail
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import androidx.lifecycle.Observer
+import com.gfdellatin.core.domain.model.Event
 import com.gfdellatin.core.usecase.GetCharacterCategoriesUseCase
 import com.gfdellatin.core.usecase.base.ResultStatus
 import com.gfdellatin.curso_android_marvel_app.R
@@ -87,9 +88,31 @@ class DetailViewModelTest {
         }
 
     @Test
-    fun `should notify uiState with Success from UiState when get character categories returns only comics`() {
-        // TODO: Implement tests
-    }
+    fun `should notify uiState with Success from UiState when get character categories returns only comics`() =
+        runTest {
+            whenever(
+                getCharacterCategoriesUseCase.invoke(any())
+            ).thenReturn(
+                flowOf(
+                    ResultStatus.Success(
+                        comics to emptyList()
+                    )
+                )
+            )
+
+            detailViewModel.getCharacterCategories(character.id)
+
+            verify(uiStateObserver).onChanged(isA<DetailViewModel.UiState.Success>())
+
+            val uiStateSuccess = detailViewModel.uiState.value as DetailViewModel.UiState.Success
+            val categoriesParentList = uiStateSuccess.detailParentList
+
+            assertEquals(1, categoriesParentList.size)
+            assertEquals(
+                R.string.details_comics_category,
+                categoriesParentList[0].categoryStringResId
+            )
+        }
 
     @Test
     fun `should notify uiState with Success from UiState when get character categories returns only events`() {
