@@ -2,7 +2,7 @@ package com.gfdellatin.curso_android_marvel_app.presentation.detail
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import androidx.lifecycle.Observer
-import com.gfdellatin.core.domain.model.Event
+import com.gfdellatin.core.domain.model.Comic
 import com.gfdellatin.core.usecase.GetCharacterCategoriesUseCase
 import com.gfdellatin.core.usecase.base.ResultStatus
 import com.gfdellatin.curso_android_marvel_app.R
@@ -115,9 +115,31 @@ class DetailViewModelTest {
         }
 
     @Test
-    fun `should notify uiState with Success from UiState when get character categories returns only events`() {
-        // TODO: Implement tests
-    }
+    fun `should notify uiState with Success from UiState when get character categories returns only events`() =
+        runTest {
+            whenever(
+                getCharacterCategoriesUseCase.invoke(any())
+            ).thenReturn(
+                flowOf(
+                    ResultStatus.Success(
+                       emptyList<Comic>() to events
+                    )
+                )
+            )
+
+            detailViewModel.getCharacterCategories(character.id)
+
+            verify(uiStateObserver).onChanged(isA<DetailViewModel.UiState.Success>())
+
+            val uiStateSuccess = detailViewModel.uiState.value as DetailViewModel.UiState.Success
+            val categoriesParentList = uiStateSuccess.detailParentList
+
+            assertEquals(1, categoriesParentList.size)
+            assertEquals(
+                R.string.details_events_category,
+                categoriesParentList[0].categoryStringResId
+            )
+        }
 
     @Test
     fun `should notify uiState with Empty from UiState when get character categories returns an empty result list`() {
