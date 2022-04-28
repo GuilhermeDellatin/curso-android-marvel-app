@@ -24,7 +24,7 @@ class DetailViewModel @Inject constructor(
 
     fun getCharacterCategories(characterId: Int) = viewModelScope.launch {
         getCharacterCategoriesUseCase
-            .invoke(GetCharacterCategoriesUseCase.GetComicsParams(characterId))
+            .invoke(GetCharacterCategoriesUseCase.GetCategoriesParams(characterId))
             .watchStatus()
     }
 
