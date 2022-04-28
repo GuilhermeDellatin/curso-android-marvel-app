@@ -11,7 +11,6 @@ import com.gfdellatin.core.usecase.base.ResultStatus
 import com.gfdellatin.curso_android_marvel_app.R
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
