@@ -142,12 +142,42 @@ class DetailViewModelTest {
         }
 
     @Test
-    fun `should notify uiState with Empty from UiState when get character categories returns an empty result list`() {
-        // TODO: Implement tests
-    }
+    fun `should notify uiState with Empty from UiState when get character categories returns an empty result list`() =
+        runTest {
+
+            whenever(
+                getCharacterCategoriesUseCase.invoke(any())
+            ).thenReturn(
+                flowOf(
+                    ResultStatus.Success(
+                        emptyList<Comic>() to emptyList()
+                    )
+                )
+            )
+
+            detailViewModel.getCharacterCategories(character.id)
+
+            verify(uiStateObserver).onChanged(isA<DetailViewModel.UiState.Empty>())
+
+        }
 
     @Test
-    fun `should notify uiState with Error from UiState when get character categories returns an exception`() {
-        // TODO: Implement tests
-    }
+    fun `should notify uiState with Error from UiState when get character categories returns an exception`() =
+        runTest {
+
+            whenever(
+                getCharacterCategoriesUseCase.invoke(any())
+            ).thenReturn(
+                flowOf(
+                    ResultStatus.Error(
+                        Throwable()
+                    )
+                )
+            )
+
+            detailViewModel.getCharacterCategories(character.id)
+
+            verify(uiStateObserver).onChanged(isA<DetailViewModel.UiState.Error>())
+
+        }
 }
