@@ -1,11 +1,17 @@
 package com.gfdellatin.core.usecase
 
 import com.gfdellatin.core.data.repository.CharactersRepository
+import com.gfdellatin.core.usecase.base.ResultStatus
 import com.gfdellatin.testing.MainCoroutineRule
+import com.gfdellatin.testing.model.CharacterFactory
 import com.gfdellatin.testing.model.ComicFactory
 import com.gfdellatin.testing.model.EventFactory
+import com.nhaarman.mockitokotlin2.whenever
 import kotlinx.coroutines.ExperimentalCoroutinesApi
+import kotlinx.coroutines.flow.toList
 import kotlinx.coroutines.test.runTest
+import org.junit.Assert.assertEquals
+import org.junit.Assert.assertTrue
 import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
@@ -23,6 +29,7 @@ class GetCharacterCategoriesUseCaseImplTest {
     @Mock
     private lateinit var repository: CharactersRepository
 
+    private val character = CharacterFactory().create(CharacterFactory.Hero.ThreeDMan)
     private val comics = listOf(ComicFactory().create(ComicFactory.FakeComic.FakeComic1))
     private val events = listOf(EventFactory().create(EventFactory.FakeEvent.FakeEvent1))
 
@@ -39,7 +46,19 @@ class GetCharacterCategoriesUseCaseImplTest {
     @Test
     fun `should return Success from ResultStatus when get both requests return success`() =
         runTest {
+            //Arrange
+            whenever(repository.getComics(character.id)).thenReturn(comics)
+            whenever(repository.getEvents(character.id)).thenReturn(events)
 
+            //Act
+            val result = getCharacterCategoriesUseCase.invoke(
+                GetCharacterCategoriesUseCase.GetCategoriesParams(character.id)
+            )
+
+            //Assert
+            val resultList = result.toList()
+            assertEquals(ResultStatus.Loading, resultList[0])
+            assertTrue(resultList[1] is ResultStatus.Success)
         }
 
     @Test
