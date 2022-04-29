@@ -5,8 +5,10 @@ import com.gfdellatin.testing.MainCoroutineRule
 import com.gfdellatin.testing.model.ComicFactory
 import com.gfdellatin.testing.model.EventFactory
 import kotlinx.coroutines.ExperimentalCoroutinesApi
+import kotlinx.coroutines.test.runTest
 import org.junit.Before
 import org.junit.Rule
+import org.junit.Test
 import org.junit.runner.RunWith
 import org.mockito.Mock
 import org.mockito.junit.MockitoJUnitRunner
@@ -33,5 +35,23 @@ class GetCharacterCategoriesUseCaseImplTest {
             mainCoroutineRule.testDispatcherProvider
         )
     }
+
+    @Test
+    fun `should return Success from ResultStatus when get both requests return success`() =
+        runTest {
+
+        }
+
+    @Test
+    fun `should return Error from ResultStatus when get events request returns error`() =
+        runTest {
+
+        }
+
+    @Test
+    fun `should return Error from ResultStatus when get comics request returns error`() =
+        runTest {
+
+        }
 
 }
