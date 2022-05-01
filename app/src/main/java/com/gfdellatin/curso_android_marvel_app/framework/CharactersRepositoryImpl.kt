@@ -1,4 +1,4 @@
-package com.gfdellatin.curso_android_marvel_app.framework.remote
+package com.gfdellatin.curso_android_marvel_app.framework
 
 import androidx.paging.PagingSource
 import com.gfdellatin.core.data.repository.CharactersRemoteDataSource
