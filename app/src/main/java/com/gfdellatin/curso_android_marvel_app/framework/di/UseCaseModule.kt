@@ -1,6 +1,11 @@
 package com.gfdellatin.curso_android_marvel_app.framework.di
 
-import com.gfdellatin.core.usecase.*
+import com.gfdellatin.core.usecase.AddFavoriteUseCase
+import com.gfdellatin.core.usecase.AddFavoriteUseCaseImpl
+import com.gfdellatin.core.usecase.GetCharacterCategoriesUseCase
+import com.gfdellatin.core.usecase.GetCharacterCategoriesUseCaseImpl
+import com.gfdellatin.core.usecase.GetCharactersUseCase
+import com.gfdellatin.core.usecase.GetCharactersUseCaseImpl
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn
@@ -19,5 +24,5 @@ interface UseCaseModule {
     ): GetCharacterCategoriesUseCase
 
     @Binds
-    fun bindAddFavoriteUseCase(useCase: AddFavoriteUseCaseImpl) : AddFavoriteUseCase
+    fun bindAddFavoriteUseCase(useCase: AddFavoriteUseCaseImpl): AddFavoriteUseCase
 }

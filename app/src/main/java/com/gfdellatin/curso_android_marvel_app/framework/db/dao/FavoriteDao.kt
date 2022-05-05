@@ -1,6 +1,10 @@
 package com.gfdellatin.curso_android_marvel_app.framework.db.dao
 
-import androidx.room.*
+import androidx.room.Dao
+import androidx.room.Delete
+import androidx.room.Insert
+import androidx.room.OnConflictStrategy
+import androidx.room.Query
 import com.gfdellatin.core.data.DbConstants
 import com.gfdellatin.curso_android_marvel_app.framework.db.entity.FavoriteEntity
 import kotlinx.coroutines.flow.Flow
