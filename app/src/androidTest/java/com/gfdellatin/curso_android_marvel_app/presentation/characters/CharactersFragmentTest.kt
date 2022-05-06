@@ -8,6 +8,7 @@ import androidx.test.ext.junit.runners.AndroidJUnit4
 import com.gfdellatin.curso_android_marvel_app.R
 import com.gfdellatin.curso_android_marvel_app.extension.asJsonString
 import com.gfdellatin.curso_android_marvel_app.framework.di.BaseUrlModule
+import com.gfdellatin.curso_android_marvel_app.framework.di.CoroutinesModule
 import com.gfdellatin.curso_android_marvel_app.launchFragmentInHiltContainer
 import dagger.hilt.android.testing.HiltAndroidRule
 import dagger.hilt.android.testing.HiltAndroidTest
@@ -21,7 +22,7 @@ import org.junit.Test
 import org.junit.runner.RunWith
 
 @RunWith(AndroidJUnit4::class)
-@UninstallModules(BaseUrlModule::class)
+@UninstallModules(BaseUrlModule::class, CoroutinesModule::class)
 @HiltAndroidTest
 class CharactersFragmentTest {
 
@@ -49,7 +50,7 @@ class CharactersFragmentTest {
     }
 
     @Test
-    fun shouldShowCharacters_whenNewPagingIsRequested() {
+    fun shouldLoadCharacters_whenNewPagingIsRequested() {
         //Arrange
         with(server) {
             enqueue(MockResponse().setBody("characters_p1.json".asJsonString()))
