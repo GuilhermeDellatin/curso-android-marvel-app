@@ -78,6 +78,7 @@ class CharactersFragment : Fragment() {
     }
 
     private fun initCharactersAdapter() {
+        postponeEnterTransition()
         with(binding.recyclerCharacters) {
             setHasFixedSize(true)
             adapter = charactersAdapter.withLoadStateFooter(
@@ -85,6 +86,10 @@ class CharactersFragment : Fragment() {
                     charactersAdapter::retry
                 )
             )
+            viewTreeObserver.addOnPreDrawListener {
+                startPostponedEnterTransition()
+                true
+            }
         }
     }
 
