@@ -227,4 +227,26 @@ class DetailViewModelTest {
 
             assertEquals(R.drawable.ic_favorite_checked, uiState.icon)
         }
+
+    @Test
+    fun `should notify favorite_uiState with not filled favorite icon when check favorite returns false`() =
+        runTest {
+            whenever(
+                checkFavoriteUseCase.invoke(any())
+            ).thenReturn(
+                flowOf(
+                    ResultStatus.Success(false)
+                )
+            )
+
+            detailViewModel.favorite.checkFavorite(character.id)
+
+            verify(favoriteUiStateObserver).onChanged(isA<FavoriteUiActionStateLiveData.UiState.Icon>())
+
+            val uiState =
+                detailViewModel.favorite.state.value as FavoriteUiActionStateLiveData.UiState.Icon
+
+            assertEquals(R.drawable.ic_favorite_unchecked, uiState.icon)
+        }
+
 }
