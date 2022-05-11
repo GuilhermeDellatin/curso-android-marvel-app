@@ -8,6 +8,8 @@ import com.gfdellatin.core.usecase.GetCharacterCategoriesUseCase
 import com.gfdellatin.core.usecase.GetCharacterCategoriesUseCaseImpl
 import com.gfdellatin.core.usecase.GetCharactersUseCase
 import com.gfdellatin.core.usecase.GetCharactersUseCaseImpl
+import com.gfdellatin.core.usecase.GetFavoritesUseCase
+import com.gfdellatin.core.usecase.GetFavoritesUseCaseImpl
 import com.gfdellatin.core.usecase.RemoveFavoriteUseCase
 import com.gfdellatin.core.usecase.RemoveFavoriteUseCaseImpl
 import dagger.Binds
@@ -35,4 +37,7 @@ interface UseCaseModule {
 
     @Binds
     fun bindRemoveFavoriteUseCase(useCase: RemoveFavoriteUseCaseImpl): RemoveFavoriteUseCase
+
+    @Binds
+    fun bindGetFavoritesUseCase(useCase: GetFavoritesUseCaseImpl) : GetFavoritesUseCase
 }
